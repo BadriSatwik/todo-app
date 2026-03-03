@@ -26,7 +26,7 @@ function App() {
 
   return (
     <div className='App'>
-      <todosContext.Provider value={{ Todos, setTodos, Todo, setTodo }}>
+      <todosContext.Provider value={{ Todos, setTodos, Todo, setTodo, filter, setFilter }}>
 
         <TodoLayout />
 

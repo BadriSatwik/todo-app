@@ -1,11 +1,11 @@
 import { useContext, useState } from "react"
 import { todosContext } from "../../context/context"
-// const {Todos,setTodos} = useContext(todosContext)
+// const { Todos, setTodos, Todo, setTodo } = useContext(todosContext)
 
 import './TodoItem.css'
 
 const TodoItem = () => {
-    const { Todos, setTodos, Todo, setTodo } = useContext(todosContext)
+    const { Todos, setTodos, Todo, setTodo, filter } = useContext(todosContext)
 
     function handleDelete(id) {
         const newTodos = Todos.filter((todo) => todo.id !== id)
@@ -27,14 +27,20 @@ const TodoItem = () => {
     }
     return (
         <div>
-            {Todos.map((item) => {
-                return <div key={item.id}>
-                    <input type="checkbox" checked={item.isFinished} onChange={() => handleCheckbox(item.id)} />
-                    <div className={item.isFinished ? "line-through" : ""}>{item.Todo}</div>
-                    <button onClick={() => handleEdit(item.id)}>Edit</button>
-                    <button onClick={() => handleDelete(item.id)}>Delete</button>
-                </div>
-            })}
+            {Todos
+                .filter(item => {
+                    if (filter === "finished") return item.isFinished
+                    if (filter === "active") return !item.isFinished
+                    else return true
+                })
+                .map((item) => {
+                    return <div key={item.id}>
+                        <input type="checkbox" checked={item.isFinished} onChange={() => handleCheckbox(item.id)} />
+                        <div className={item.isFinished ? "line-through" : ""}>{item.Todo}</div>
+                        <button onClick={() => handleEdit(item.id)}>Edit</button>
+                        <button onClick={() => handleDelete(item.id)}>Delete</button>
+                    </div>
+                })}
         </div>
     )
 }

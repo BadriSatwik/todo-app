@@ -1,11 +1,12 @@
 import TodoSidebar from '../TodoSidebar/TodoSidebar'
 import TodoHeader from '../TodoHeader/TodoHeader'
 import TodoInput from '../TodoInput/TodoInput'
+import TodoFilters from '../TodoFilters/TodoFilters'
 import TodoItem from '../TodoItem/TodoItem'
 
 import './TodoLayout.css'
 
-const TodoLayout = ({ Todos, setTodos }) => {
+const TodoLayout = () => {
   return (
   <div>
     <div className="Header"><TodoHeader /></div>
@@ -16,6 +17,7 @@ const TodoLayout = ({ Todos, setTodos }) => {
 
       <div className='Main'>
         <div className="Input"><TodoInput /></div>
+        <div className="Filters"><TodoFilters/></div>
         <div className="List"><TodoItem /></div>
       </div>
 
