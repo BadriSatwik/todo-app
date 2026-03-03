@@ -1,0 +1,23 @@
+.TodoLayout{
+    display: flex;
+    justify-content: center;
+
+}
+
+.Header{
+    display: flex;
+    justify-content: center;
+}
+
+.Sidebar{
+    width: 20vw;
+    min-height: 69vh;
+    background-color: rgba(0, 255, 255, 0.487);
+}
+
+.Main{
+    width: 70vw;
+    min-height: 69Vvh;
+    background-color: rgb(48, 85, 85);
+    padding: 30px;
+}
