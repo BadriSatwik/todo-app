@@ -6,11 +6,10 @@ import { todosContext } from "../../context/context"
 import { v4 as uuidv4 } from 'uuid';
 
 const TodoInput = () => {
-  const { Todos, setTodos } = useContext(todosContext)
-  const [Todo, setTodo] = useState("")
-
+  const { Todos, setTodos, Todo, setTodo } = useContext(todosContext)
+  
   function handleClick() {
-    if (Todo.trim() === "") return
+    if (Todo.trim === "") return
 
     setTodos([...Todos, { Todo , id : uuidv4() ,  isFinished : false }])
     setTodo("")

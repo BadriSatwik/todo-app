@@ -7,6 +7,7 @@ import { todosContext } from './context/context'
 
 function App() {
 
+  const [Todo, setTodo] = useState("")
   const [Todos, setTodos] = useState([])
   const [filter, setFilter] = useState("all")
 
@@ -25,7 +26,7 @@ function App() {
 
   return (
     <div className='App'>
-      <todosContext.Provider value={{ Todos, setTodos }}>
+      <todosContext.Provider value={{ Todos, setTodos, Todo, setTodo }}>
 
         <TodoLayout />
 

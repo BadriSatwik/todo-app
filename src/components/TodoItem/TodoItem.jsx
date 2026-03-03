@@ -1,11 +1,11 @@
-import { useContext } from "react"
+import { useContext, useState } from "react"
 import { todosContext } from "../../context/context"
 // const {Todos,setTodos} = useContext(todosContext)
 
 import './TodoItem.css'
 
 const TodoItem = () => {
-    const { Todos, setTodos } = useContext(todosContext)
+    const { Todos, setTodos, Todo, setTodo } = useContext(todosContext)
 
     function handleDelete(id) {
         const newTodos = Todos.filter((todo) => todo.id !== id)
@@ -18,13 +18,20 @@ const TodoItem = () => {
         )
         setTodos(newTodos)
     }
+
+    function handleEdit(id) {
+        const editTodo = Todos.find((item) => item.id === id)
+        setTodo(editTodo.Todo)
+        const newTodos = Todos.filter((todo) => todo.id !== id)
+        setTodos(newTodos)
+    }
     return (
         <div>
             {Todos.map((item) => {
                 return <div key={item.id}>
                     <input type="checkbox" checked={item.isFinished} onChange={() => handleCheckbox(item.id)} />
                     <div className={item.isFinished ? "line-through" : ""}>{item.Todo}</div>
-                    <button>Edit</button>
+                    <button onClick={() => handleEdit(item.id)}>Edit</button>
                     <button onClick={() => handleDelete(item.id)}>Delete</button>
                 </div>
             })}
