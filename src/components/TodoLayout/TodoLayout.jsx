@@ -1,10 +1,9 @@
 import TodoSidebar from '../TodoSidebar/TodoSidebar'
 import TodoHeader from '../TodoHeader/TodoHeader'
 import TodoInput from '../TodoInput/TodoInput'
-import TodoList from '../TodoList/TodoList'
+import TodoItem from '../TodoItem/TodoItem'
 
 import './TodoLayout.css'
-import TodoItem from '../TodoItem/TodoItem'
 
 const TodoLayout = ({ Todos, setTodos }) => {
   return (
