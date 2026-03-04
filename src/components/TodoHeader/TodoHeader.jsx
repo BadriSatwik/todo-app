@@ -1,5 +1,3 @@
-import React from 'react'
-
 const TodoHeader = () => {
   return (
     <div className='TodoHeader'>

@@ -1,10 +1,33 @@
-import TodoFilters from '../TodoFilters/TodoFilters'
-import TodoItem from '../TodoItem/TodoItem'
+import { useContext, useState } from "react"
+import { todosContext } from "../../context/context"
 
-const TodoList = ({Todos,setTodos}) => {
+const TodoList = () => {
+  const { Todos, setTodos, TodoLists, setTodoLists, activeListId, setActiveListId } = useContext(todosContext)
+
+  function handleListItem(id) {
+    setActiveListId(id)
+    const selectedList = TodoLists.find(item => item.id === id)
+    setTodos(selectedList.Todos)
+  }
+
+  function handleDelete(id) {
+    const newTodoLists = TodoLists.filter((TodoListItem) => TodoListItem.id !== id)
+    setTodoLists(newTodoLists)
+  }
   return (
     <div>
-        todo lists
+      {TodoLists.map((item) => {
+        return <div key={item.id}>
+
+          <button onClick={() => handleListItem(item.id)}>
+            {item.TodoListItem}
+          </button>
+
+          <button onClick={() => handleDelete(item.id)}>
+            Delete
+          </button>
+        </div>
+      })}
     </div>
   )
 }

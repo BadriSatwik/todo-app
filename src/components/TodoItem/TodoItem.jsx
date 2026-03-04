@@ -1,7 +1,5 @@
 import { useContext, useState } from "react"
 import { todosContext } from "../../context/context"
-// const { Todos, setTodos, Todo, setTodo } = useContext(todosContext)
-
 import './TodoItem.css'
 
 const TodoItem = () => {
