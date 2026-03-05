@@ -1,6 +1,6 @@
 import { useContext, useState } from "react"
 import { todosContext } from "../../context/context"
-
+import './TodoList.css'
 const TodoList = () => {
   const { Todos, setTodos, TodoLists, setTodoLists, activeListId, setActiveListId } = useContext(todosContext)
 
@@ -17,14 +17,14 @@ const TodoList = () => {
   return (
     <div>
       {TodoLists.map((item) => {
-        return <div key={item.id}>
+        return <div className="listItem" key={item.id}>
 
-          <button onClick={() => handleListItem(item.id)}>
+          <button className="openList" onClick={() => handleListItem(item.id)}>
             {item.TodoListItem}
           </button>
 
-          <button onClick={() => handleDelete(item.id)}>
-            Delete
+          <button className="deleteList" onClick={() => handleDelete(item.id)}>
+            <img src='/delList.svg'/>
           </button>
         </div>
       })}

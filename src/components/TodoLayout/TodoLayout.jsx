@@ -10,7 +10,7 @@ import { useContext, useState } from "react"
 import { todosContext } from "../../context/context"
 
 const TodoLayout = () => {
-  const { activeListId } = useContext(todosContext)
+  const { activeListId, Todo } = useContext(todosContext)
   return (
     <div>
       <div className="Header"><TodoHeader /></div>
@@ -18,13 +18,17 @@ const TodoLayout = () => {
 
         <div className="Sidebar"><TodoSidebar /></div>
 
-
         <div className='Main'>
-          {activeListId !== null ? <div><div className="Input"><TodoInput /></div>
+          {activeListId !== null ? <div>
+            <div className="Input"><TodoInput /></div>
             <div className="Filters"><TodoFilters /></div>
             <div className="List"><TodoItem /></div>
-          </div> : <div>Hello Everyone...Welcome To MY TODO APP</div>}
-
+          </div>
+            :
+            <div className='welcome'>
+              <div className='text'>Hello Everyone...</div>
+              <div className='text'>Welcome To MY TODO APP</div>
+            </div>}
         </div>
 
       </div>

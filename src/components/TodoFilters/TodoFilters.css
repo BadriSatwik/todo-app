@@ -1,0 +1,13 @@
+.filter{
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin: 20px;
+}
+.filter button{
+    padding: 10px 20px;
+    background-color: #00427c;
+    color: white ;
+    border: 0;
+    border-radius: 20px;
+}

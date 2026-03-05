@@ -7,23 +7,34 @@ import { v4 as uuidv4 } from 'uuid';
 
 const TodoSidebar = () => {
   const { TodoLists, setTodoLists } = useContext(todosContext)
-  const [TodoListItem, setTodoListItem] = useState([])
+  const [TodoListItem, setTodoListItem] = useState("")
+  const [showInput, setShowInput] = useState(false);
 
   function handleAdd() {
-    setTodoLists([...TodoLists, { TodoListItem, id: uuidv4(), Todos: [] }])
-    setTodoListItem("")
+  if (!showInput) {
+    setShowInput(true)
+    return
   }
+  if (TodoListItem.trim() === "") return
+  else{
+  setTodoLists([...TodoLists, { TodoListItem, id: uuidv4(), Todos: []}])
+  setTodoListItem("")
+  setShowInput(false)
+  }
+}
 
   function handleChange(e) {
     setTodoListItem(e.target.value)
   }
 
   return (
-    <div className='TodoSidebar'>
-      <h2>Todo Lists :</h2>
-      <button onClick={handleAdd}>Add List</button>
-      <input type="text" value={TodoListItem} placeholder='add a todolist' onChange={handleChange} />
-      <TodoList TodoListItem={TodoListItem} setTodoListItem={setTodoListItem} />
+    <div className='side'>
+      <div className='heading'>Todo Lists : </div>
+      <div className='TodoSidebar'>
+        {showInput && <input type="text" value={TodoListItem} placeholder='ADD A TODO-LIST' onChange={handleChange} />}
+        <button className='Addbtn' onClick={handleAdd}>Add List <img src='/addList.svg'/></button>
+        <TodoList TodoListItem={TodoListItem} setTodoListItem={setTodoListItem} />
+      </div>
     </div>
   )
 }

@@ -1,7 +1,24 @@
 .TodoInput{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
     
 }
-input{
-    padding: 20px;
-    width: 30vw;
+.TodoInput input{
+    padding: 10px 20px;
+    width: 50%;
+    background-color: aliceblue;
+    border: 0;
+    border-radius: 20px;
+}
+input:focus{
+    outline-color: #00427c;
+    outline-offset: 2px;
+}
+.TodoInput button{
+    padding: 10px 20px;
+    background-color: #00427c;
+    color: white ;
+    border: 0;
+    border-radius: 20px;
 }

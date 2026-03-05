@@ -26,7 +26,7 @@ const TodoInput = () => {
   }
   return (
     <div className='TodoInput'>
-      <input type="text" value={Todo} placeholder='add a todo' onChange={handleChange} />
+      <input type="text" value={Todo} placeholder='ADD A TODO...' onChange={handleChange} />
       <button onClick={handleClick}>Add</button>
     </div>
   )

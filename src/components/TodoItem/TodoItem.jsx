@@ -24,7 +24,7 @@ const TodoItem = () => {
         setTodos(newTodos)
     }
     return (
-        <div>
+        <div className="item-main">
             {Todos
                 .filter(item => {
                     if (filter === "finished") return item.isFinished
@@ -32,11 +32,15 @@ const TodoItem = () => {
                     else return true
                 })
                 .map((item) => {
-                    return <div key={item.id}>
-                        <input type="checkbox" checked={item.isFinished} onChange={() => handleCheckbox(item.id)} />
-                        <div className={item.isFinished ? "line-through" : ""}>{item.Todo}</div>
-                        <button onClick={() => handleEdit(item.id)}>Edit</button>
-                        <button onClick={() => handleDelete(item.id)}>Delete</button>
+                    return <div className="inp" key={item.id}>
+                        <div className="name">
+                            <input type="checkbox" checked={item.isFinished} onChange={() => handleCheckbox(item.id)} />
+                            <div className={item.isFinished ? "line-through" : ""}>{item.Todo}</div>
+                        </div>
+                        <div className="btn">
+                            <button onClick={() => handleEdit(item.id)}><img src="/edit.svg"/></button>
+                            <button onClick={() => handleDelete(item.id)}><img src="/delete.svg"/> </button>
+                        </div>
                     </div>
                 })}
         </div>

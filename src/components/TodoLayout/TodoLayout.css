@@ -1,23 +1,25 @@
-.TodoLayout{
+.TodoLayout {
     display: flex;
     justify-content: center;
+    gap: 10px;
 
 }
 
-.Header{
+.Main {
+    width: 72vw;
+    background-color: lightblue;
+    border-radius: 20px;
+    padding: 20px;
+    overflow-y: auto;
+    height: 83vh;
+}
+.welcome{
     display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
+    height: 80vh;
 }
-
-.Sidebar{
-    width: 20vw;
-    min-height: 69vh;
-    background-color: rgba(0, 255, 255, 0.487);
-}
-
-.Main{
-    width: 70vw;
-    min-height: 69Vvh;
-    background-color: rgb(48, 85, 85);
-    padding: 30px;
+.text{
+    font-size: 50px;
 }

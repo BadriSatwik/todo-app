@@ -1,0 +1,28 @@
+.listItem {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+    gap: 10px;
+    flex-wrap: wrap;
+
+}
+
+.openList {
+    background-color: black;
+    color: white;
+    border: 0;
+    padding: 10px;
+    border-radius: 10px;
+    width: 75%;
+    word-break: break-word;
+
+}
+
+.deleteList {
+    background-color: black;
+    color: white;
+    border: 0;
+    padding: 10px;
+    border-radius: 10px;
+}
